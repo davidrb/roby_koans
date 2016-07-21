@@ -14,7 +14,17 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+    [[a, b, c], [c, a, b], [b, c, a]].each do |d|
+        raise TriangleError unless (d[0] > 0) && (d[0] < d[1] + d[2])
+    end
+
+    if a == b && b == c
+        :equilateral
+    elsif a == b || b == c || a == c
+        :isosceles
+    else
+        :scalene
+    end
 end
 
 # Error class used in part 2.  No need to change this code.
